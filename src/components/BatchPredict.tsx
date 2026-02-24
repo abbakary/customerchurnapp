@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const API = 'http://localhost:8000/api';
+import { API_URL } from '../config';
+
+const API = API_URL;
 
 const emptyRow = (i: number) => ({
     customer_id: `CUST-${String(i + 1).padStart(3, '0')}`,

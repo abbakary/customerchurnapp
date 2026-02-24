@@ -2,7 +2,9 @@ import { useState } from 'react';
 import axios from 'axios';
 import ResultCard from './ResultCard';
 
-const API = 'http://localhost:8000/api';
+import { API_URL } from '../config';
+
+const API = API_URL;
 
 interface FormData {
     customer_id: string;

@@ -6,7 +6,9 @@ import {
     BarChart, Bar, XAxis, YAxis,
 } from 'recharts';
 
-const API = 'http://localhost:8000/api';
+import { API_URL } from '../config';
+
+const API = API_URL;
 
 interface Stats {
     total_predictions: number;
@@ -59,7 +61,7 @@ export default function Dashboard() {
                 setError(''); // Clear error on successful fetch
             })
             .catch(() => {
-                setError('Cannot connect to Django API on port 8000. Start the server first.');
+                setError('Cannot connect to the production API. Please check your internet connection or backend status.');
                 setLoading(false);
                 setIsRefreshing(false);
             });

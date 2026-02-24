@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API = 'http://localhost:8000/api';
+import { API_URL } from '../config';
+
+const API = API_URL;
 
 interface Pred {
     id: number; customer_id: string; age: number; contract_type: string;
@@ -29,7 +31,7 @@ export default function HistoryPage() {
         if (churnFilter !== '') url += `is_churn=${churnFilter}&`;
         axios.get(url)
             .then(r => { setRecords(r.data); setPage(1); setLoading(false); })
-            .catch(() => { setError('Cannot load history. Is Django running?'); setLoading(false); });
+            .catch(() => { setError('Cannot load history. Please check backend status.'); setLoading(false); });
     };
 
     useEffect(() => { fetch(); }, [riskFilter, churnFilter]);

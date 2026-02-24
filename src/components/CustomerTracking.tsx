@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API = 'http://localhost:8000/api';
+import { API_URL } from '../config';
+
+const API = API_URL;
 
 interface Customer {
     customer_id: string;

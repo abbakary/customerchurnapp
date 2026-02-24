@@ -5,7 +5,9 @@ import {
     ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
 } from 'recharts';
 
-const API = 'http://localhost:8000/api';
+import { API_URL } from '../config';
+
+const API = API_URL;
 
 interface HistoryItem {
     date: string;
