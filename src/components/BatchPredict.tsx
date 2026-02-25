@@ -61,7 +61,7 @@ export default function BatchPredict() {
                 Customer_Support_Calls: Number(r.Customer_Support_Calls),
                 Satisfaction_Score: Number(r.Satisfaction_Score),
             }));
-            const res = await axios.post(`${API}/predict/batch/`, payload);
+            const res = await axios.post(`${API}/predict/batch`, payload);
             setResults(res.data.results);
         } catch (e: any) {
             setError(e.response?.data?.error || 'Failed to connect to API.');

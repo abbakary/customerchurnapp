@@ -26,7 +26,7 @@ export default function HistoryPage() {
 
     const fetch = () => {
         setLoading(true);
-        let url = `${API}/history/?`;
+        let url = `${API}/history?`;
         if (riskFilter) url += `risk_level=${riskFilter}&`;
         if (churnFilter !== '') url += `is_churn=${churnFilter}&`;
         axios.get(url)
@@ -37,7 +37,7 @@ export default function HistoryPage() {
     useEffect(() => { fetch(); }, [riskFilter, churnFilter]);
 
     const del = (id: number) =>
-        axios.delete(`${API}/history/${id}/`).then(() => setRecords(p => p.filter(r => r.id !== id)));
+        axios.delete(`${API}/history/${id}`).then(() => setRecords(p => p.filter(r => r.id !== id)));
 
     const totalPages = Math.ceil(records.length / PER_PAGE);
     const page_data = records.slice((page - 1) * PER_PAGE, page * PER_PAGE);

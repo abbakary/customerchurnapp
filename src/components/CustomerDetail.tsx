@@ -40,7 +40,7 @@ export default function CustomerDetail() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`${API}/customers/${id}/`)
+        axios.get(`${API}/customers/${id}`)
             .then(r => {
                 setData(r.data);
                 setLoading(false);

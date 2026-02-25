@@ -109,13 +109,13 @@ export default function PredictForm() {
                 Customer_Support_Calls: Number(form.Customer_Support_Calls),
                 Satisfaction_Score: Number(form.Satisfaction_Score),
             };
-            const res = await axios.post(`${API}/predict/`, payload);
+            const res = await axios.post(`${API}/predict`, payload);
             setResult(res.data);
         } catch (err: any) {
             setError(
                 err.response?.data?.errors
                     ? Object.entries(err.response.data.errors).map(([k, v]) => `${k}: ${v}`).join(' • ')
-                    : 'Cannot reach Django API on port 8000.'
+                    : 'Cannot reach the production API. Please check your internet connection or backend status.'
             );
         }
         setLoading(false);

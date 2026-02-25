@@ -53,7 +53,7 @@ export default function Dashboard() {
         if (showLoading) setLoading(true);
         else setIsRefreshing(true);
 
-        axios.get(`${API}/stats/`)
+        axios.get(`${API}/stats`)
             .then(r => {
                 setStats(r.data);
                 setLoading(false);
